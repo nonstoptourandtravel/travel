@@ -1,0 +1,1337 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonstop Tour and Travel - Kashmir Packages</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.holidify.com/images/bgImages/SONAMARG.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        
+        .heading-primary {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 4px;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
+        
+        .package-card {
+            transition: all 0.3s ease;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 1rem;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            z-index: 1;
+        }
+        
+        .slider-nav button {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .slider-nav button:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .slider-dots {
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: white;
+        }
+        
+        .form-container {
+            background: linear-gradient(to right, #f0f9ff, #e0f2fe);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .input-field {
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .input-field:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        .custom-btn {
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            color: white;
+            transition: all 0.3s;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+        
+        .custom-btn:hover {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            transform: translateY(-2px);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Custom animation for form submission response */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Admin panel styles */
+        .admin-container {
+            background: linear-gradient(to right, #f9fafb, #f3f4f6);
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .customer-table th {
+            background-color: #3b82f6;
+            color: white;
+            padding: 12px;
+            font-weight: 600;
+        }
+        
+        .customer-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .customer-table tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        .admin-tab {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .admin-tab.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .admin-tab:hover:not(.active) {
+            background-color: #e0f2fe;
+        }
+        
+        .admin-panel {
+            display: none;
+        }
+        
+        .admin-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-blue-700">Nonstop Tour & Travel</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link font-medium text-gray-700 hover:text-blue-600">Home</a></li>
+                    <li><a href="#packages" class="nav-link font-medium text-gray-700 hover:text-blue-600">Packages</a></li>
+                    <li><a href="#booking" class="nav-link font-medium text-gray-700 hover:text-blue-600">Book Now</a></li>
+                    <li><a href="#gallery" class="nav-link font-medium text-gray-700 hover:text-blue-600">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link font-medium text-gray-700 hover:text-blue-600">Contact</a></li>
+                    <li><a href="#admin" class="nav-link font-medium text-gray-700 hover:text-blue-600">Admin</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="md:hidden hidden bg-white w-full" id="mobile-menu">
+            <ul class="px-4 pt-2 pb-4 space-y-2">
+                <li><a href="#home" class="block p-2 text-gray-700 hover:bg-blue-100 rounded">Home</a></li>
+                <li><a href="#packages" class="block p-2 text-gray-700 hover:bg-blue-100 rounded">Packages</a></li>
+                <li><a href="#booking" class="block p-2 text-gray-700 hover:bg-blue-100 rounded">Book Now</a></li>
+                <li><a href="#gallery" class="block p-2 text-gray-700 hover:bg-blue-100 rounded">Gallery</a></li>
+                <li><a href="#contact" class="block p-2 text-gray-700 hover:bg-blue-100 rounded">Contact</a></li>
+                <li><a href="#admin" class="block p-2 text-gray-700 hover:bg-blue-100 rounded">Admin</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center pt-16">
+        <div class="text-center text-white px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Discover the Paradise on Earth</h1>
+            <p class="text-xl md:text-2xl mb-8">Experience the breathtaking beauty of Kashmir with Nonstop Tour & Travel</p>
+            <a href="#booking" class="custom-btn inline-block">Book Your Trip Now</a>
+        </div>
+    </section>
+
+    <!-- Image Slider Section -->
+    <section id="gallery" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Enchanting Destinations</h2>
+            
+            <div class="slider-container max-w-4xl mx-auto">
+                <div class="slider" id="slider">
+                    <div class="slide" style="background-image: url('https://www.holidify.com/images/bgImages/SONAMARG.jpg');">
+                        <div class="slide-caption">
+                            <h3 class="text-xl font-semibold">Sonamarg - The Meadow of Gold</h3>
+                            <p>Experience the stunning alpine meadows and snow-capped mountains</p>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image: url('https://www.tourmyindia.com/states/jammu-kashmir/image/gulmarg-jummu-kashmir-baner.jpg');">
+                        <div class="slide-caption">
+                            <h3 class="text-xl font-semibold">Gulmarg - The Meadow of Flowers</h3>
+                            <p>Discover the world-famous ski resort and breathtaking landscapes</p>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image: url('https://www.holidify.com/images/bgImages/PAHALGAM.jpg');">
+                        <div class="slide-caption">
+                            <h3 class="text-xl font-semibold">Pahalgam - Valley of Shepherds</h3>
+                            <p>Explore lush green valleys, flowing rivers, and pine forests</p>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/Dal_Lake_Hazratbal_Srinagar.jpg');">
+                        <div class="slide-caption">
+                            <h3 class="text-xl font-semibold">Srinagar - The Summer Capital</h3>
+                            <p>Cruise on the iconic Dal Lake and experience the floating markets</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-nav">
+                    <button id="prev-slide" aria-label="Previous slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-slide" aria-label="Next slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="slider-dots" id="slider-dots">
+                    <span class="slider-dot active" data-index="0"></span>
+                    <span class="slider-dot" data-index="1"></span>
+                    <span class="slider-dot" data-index="2"></span>
+                    <span class="slider-dot" data-index="3"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Our Kashmir Packages</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- 5D/6N Package -->
+                <div class="package-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://www.tourmyindia.com/states/jammu-kashmir/image/pahalgam-banner.jpg" alt="Kashmir 5D/6N Package" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">Kashmir Luxury Tour</h3>
+                            <span class="bg-blue-100 text-blue-800 font-semibold px-3 py-1 rounded-full text-sm">5D/6N</span>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600 mb-4">Immerse yourself in the beauty of Kashmir with our comprehensive 5 days and 6 nights package covering all major attractions.</p>
+                            <div class="flex items-center text-gray-700 mb-2">
+                                <i class="fas fa-map-marker-alt w-5 text-blue-500"></i>
+                                <span>Srinagar (2N) → Gulmarg (1N) → Pahalgam (2N)</span>
+                            </div>
+                            <div class="flex items-center text-gray-700 mb-2">
+                                <i class="fas fa-hotel w-5 text-blue-500"></i>
+                                <span>Luxury Hotels & Houseboats</span>
+                            </div>
+                            <div class="flex items-center text-gray-700 mb-2">
+                                <i class="fas fa-utensils w-5 text-blue-500"></i>
+                                <span>All Meals Included</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-3xl font-bold text-blue-600">₹12,000</span>
+                                <span class="text-gray-500 text-sm">/person</span>
+                            </div>
+                            <a href="#booking" class="custom-btn inline-block">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 4D/5N Package -->
+                <div class="package-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://www.ekashmirtourism.com/wp-content/uploads/2022/08/dal-lake-winter.jpg" alt="Kashmir 4D/5N Package" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">Kashmir Express Tour</h3>
+                            <span class="bg-green-100 text-green-800 font-semibold px-3 py-1 rounded-full text-sm">4D/5N</span>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-gray-600 mb-4">A quick yet comprehensive tour of Kashmir's highlights perfect for those with limited time but unlimited wanderlust.</p>
+                            <div class="flex items-center text-gray-700 mb-2">
+                                <i class="fas fa-map-marker-alt w-5 text-green-500"></i>
+                                <span>Srinagar (2N) → Gulmarg (1N) → Sonamarg (1N)</span>
+                            </div>
+                            <div class="flex items-center text-gray-700 mb-2">
+                                <i class="fas fa-hotel w-5 text-green-500"></i>
+                                <span>Deluxe Accommodations</span>
+                            </div>
+                            <div class="flex items-center text-gray-700 mb-2">
+                                <i class="fas fa-utensils w-5 text-green-500"></i>
+                                <span>Breakfast & Dinner Included</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-3xl font-bold text-green-600">₹9,999</span>
+                                <span class="text-gray-500 text-sm">/person</span>
+                            </div>
+                            <a href="#booking" class="custom-btn inline-block bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Book Your Trip</h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="form-container p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-800">Personal Information</h3>
+                    <form
+                      action="https://formspree.io/f/xaneawzk"
+                              method="POST"
+                                        >
+                        <div>
+                              
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="age" class="block text-gray-700 font-medium mb-2">Age</label>
+                            <input type="number" id="age" name="age" required min="1" max="120"
+                                class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}"
+                                class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none" 
+                                placeholder="10-digit mobile number">
+                        </div>
+                        <div>
+                            <label for="place" class="block text-gray-700 font-medium mb-2">Your City</label>
+                            <input type="text" id="place" name="place" required
+                                class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="package" class="block text-gray-700 font-medium mb-2">Select Package</label>
+                            <select id="package" name="package" required
+                                class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none">
+                                <option value="">-- Select a package --</option>
+                                <option value="5D/6N Kashmir Luxury Tour">5D/6N Kashmir Luxury Tour</option>
+                                <option value="4D/5N Kashmir Express Tour">4D/5N Kashmir Express Tour</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-gray-700 font-medium mb-2">Travel Date</label>
+                            <input type="date" id="date" name="date" required
+                                class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="guests" class="block text-gray-700 font-medium mb-2">Number of Guests</label>
+                            <input type="number" id="guests" name="guests" required min="1" max="20" value="1"
+                                class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none">
+                        </div>
+                        <div class="mt-6">
+                            <button type="submit" class="custom-btn w-full py-3 text-center">
+                                Submit Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="bg-white rounded-lg p-8 shadow-lg flex flex-col justify-center">
+                    <div id="booking-info" class="hidden">
+                        <h3 class="text-2xl font-bold mb-6 text-blue-800">Booking Information</h3>
+                        <div class="space-y-4 text-gray-700">
+                            <p class="text-lg"><span class="font-semibold">Name:</span> <span id="info-name"></span></p>
+                            <p class="text-lg"><span class="font-semibold">Age:</span> <span id="info-age"></span></p>
+                            <p class="text-lg"><span class="font-semibold">Phone:</span> <span id="info-phone"></span></p>
+                            <p class="text-lg"><span class="font-semibold">From:</span> <span id="info-place"></span></p>
+                            <p class="text-lg"><span class="font-semibold">Package:</span> <span id="info-package"></span></p>
+                            <p class="text-lg"><span class="font-semibold">Travel Date:</span> <span id="info-date"></span></p>
+                            <p class="text-lg"><span class="font-semibold">Guests:</span> <span id="info-guests"></span></p>
+                            <div class="mt-6 text-center">
+                                <p class="text-green-600 font-semibold text-xl">Thank you for booking with Nonstop Tour & Travel!</p>
+                                <p class="mt-2">Our team will contact you shortly to confirm your booking.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="booking-placeholder" class="text-center">
+                        <img src="https://www.ekashmirtourism.com/wp-content/uploads/2023/11/sonamarg-view.jpg" alt="Kashmir Tourism" class="w-full h-auto rounded-lg mb-6">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-800">Ready to Experience Kashmir?</h3>
+                        <p class="text-gray-600">Fill out the form on the left and start your journey to the paradise on earth. Your booking details will appear here after submission.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Section -->
+    <section id="admin" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Admin Dashboard</h2>
+            
+            <!-- Admin Login -->
+            <div class="max-w-md mx-auto mb-12 bg-white rounded-lg shadow-lg p-8" id="admin-login-section">
+                <h3 class="text-2xl font-bold mb-6 text-blue-800">Admin Login</h3>
+                <form id="admin-login-form" class="space-y-4">
+                    <div>
+                        <label for="admin-username" class="block text-gray-700 font-medium mb-2">Username</label>
+                        <input type="text" id="admin-username" name="username" 
+                            class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none"
+                            placeholder="Enter admin username">
+                    </div>
+                    <div>
+                        <label for="admin-password" class="block text-gray-700 font-medium mb-2">Password</label>
+                        <input type="password" id="admin-password" name="password" 
+                            class="input-field w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none"
+                            placeholder="Enter password">
+                    </div>
+                    <div class="mt-6">
+                        <button type="button" id="admin-login-btn" class="custom-btn w-full py-3 text-center">
+                            Login
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-500 text-center mt-4">
+                        Note: For demo purposes, click login without credentials to access the admin dashboard.
+                    </p>
+                </form>
+            </div>
+            
+            <!-- Admin Dashboard Panel (Hidden by default) -->
+            <div id="admin-dashboard" class="max-w-6xl mx-auto admin-container hidden">
+                <div class="flex border-b">
+                    <div class="admin-tab active p-4 font-semibold text-center flex-1" data-tab="customers">
+                        <i class="fas fa-users mr-2"></i> Customer Management
+                    </div>
+                    <div class="admin-tab p-4 font-semibold text-center flex-1" data-tab="bookings">
+                        <i class="fas fa-calendar-check mr-2"></i> Booking Management
+                    </div>
+                    <div class="admin-tab p-4 font-semibold text-center flex-1" data-tab="analytics">
+                        <i class="fas fa-chart-bar mr-2"></i> Analytics
+                    </div>
+                </div>
+                
+                <!-- Customers Tab Panel -->
+                <div id="customers-panel" class="admin-panel active p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">Customer Database</h3>
+                        <div class="flex space-x-2">
+                            <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-200 transition">
+                                <i class="fas fa-file-export mr-2"></i> Export Data
+                            </button>
+                            <button class="bg-green-100 text-green-700 px-4 py-2 rounded-lg hover:bg-green-200 transition">
+                                <i class="fas fa-plus mr-2"></i> Add Customer
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-6">
+                        <table class="w-full customer-table">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Name</th>
+                                    <th class="text-left">Age</th>
+                                    <th class="text-left">Phone Number</th>
+                                    <th class="text-left">Location</th>
+                                    <th class="text-left">Package</th>
+                                    <th class="text-left">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customer-table-body">
+                                <tr>
+                                    <td>Rahul Sharma</td>
+                                    <td>32</td>
+                                    <td>9876543210</td>
+                                    <td>Mumbai</td>
+                                    <td>5D/6N Kashmir Luxury Tour</td>
+                                    <td>
+                                        <div class="flex space-x-2">
+                                            <button class="text-blue-600 hover:text-blue-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-800">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Priya Patel</td>
+                                    <td>28</td>
+                                    <td>8765432109</td>
+                                    <td>Delhi</td>
+                                    <td>4D/5N Kashmir Express Tour</td>
+                                    <td>
+                                        <div class="flex space-x-2">
+                                            <button class="text-blue-600 hover:text-blue-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-800">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Amit Verma</td>
+                                    <td>45</td>
+                                    <td>7654321098</td>
+                                    <td>Bangalore</td>
+                                    <td>5D/6N Kashmir Luxury Tour</td>
+                                    <td>
+                                        <div class="flex space-x-2">
+                                            <button class="text-blue-600 hover:text-blue-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-800">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-lg text-blue-800 mb-3">How to Collect Customer Details</h4>
+                        <p class="text-gray-700 mb-4">Customer details are automatically collected when they submit the booking form on the website. All data is securely stored in our database and can be accessed through this admin dashboard.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h5 class="font-semibold text-blue-700 mb-2">Data Collection Points</h5>
+                                <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                    <li>Booking form submissions</li>
+                                    <li>Contact form inquiries</li>
+                                    <li>Newsletter subscriptions</li>
+                                    <li>Manual entry by admin staff</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h5 class="font-semibold text-blue-700 mb-2">Customer Management Tools</h5>
+                                <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                    <li>Search and filter customer data</li>
+                                    <li>Export data to Excel/CSV</li>
+                                    <li>Edit customer information</li>
+                                    <li>View booking history</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bookings Tab Panel -->
+                <div id="bookings-panel" class="admin-panel p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">Booking Management</h3>
+                        <div class="flex space-x-2">
+                            <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-200 transition">
+                                <i class="fas fa-calendar-alt mr-2"></i> Calendar View
+                            </button>
+                            <button class="bg-green-100 text-green-700 px-4 py-2 rounded-lg hover:bg-green-200 transition">
+                                <i class="fas fa-plus mr-2"></i> Add Booking
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-6">
+                        <table class="w-full customer-table">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Booking ID</th>
+                                    <th class="text-left">Customer</th>
+                                    <th class="text-left">Package</th>
+                                    <th class="text-left">Travel Date</th>
+                                    <th class="text-left">Guests</th>
+                                    <th class="text-left">Status</th>
+                                    <th class="text-left">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>BK-2023001</td>
+                                    <td>Rahul Sharma</td>
+                                    <td>5D/6N Kashmir Luxury Tour</td>
+                                    <td>15 Jun 2024</td>
+                                    <td>2</td>
+                                    <td><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">Confirmed</span></td>
+                                    <td>
+                                        <div class="flex space-x-2">
+                                            <button class="text-blue-600 hover:text-blue-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-yellow-600 hover:text-yellow-800">
+                                                <i class="fas fa-print"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>BK-2023002</td>
+                                    <td>Priya Patel</td>
+                                    <td>4D/5N Kashmir Express Tour</td>
+                                    <td>22 Jun 2024</td>
+                                    <td>4</td>
+                                    <td><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold">Pending</span></td>
+                                    <td>
+                                        <div class="flex space-x-2">
+                                            <button class="text-blue-600 hover:text-blue-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-yellow-600 hover:text-yellow-800">
+                                                <i class="fas fa-print"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>BK-2023003</td>
+                                    <td>Amit Verma</td>
+                                    <td>5D/6N Kashmir Luxury Tour</td>
+                                    <td>10 Jul 2024</td>
+                                    <td>3</td>
+                                    <td><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">Confirmed</span></td>
+                                    <td>
+                                        <div class="flex space-x-2">
+                                            <button class="text-blue-600 hover:text-blue-800">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-yellow-600 hover:text-yellow-800">
+                                                <i class="fas fa-print"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-lg text-green-800 mb-3">Managing Customer Bookings</h4>
+                        <p class="text-gray-700 mb-4">All bookings made through the website are automatically recorded and can be managed here. You can view, edit, confirm, or cancel bookings as needed.</p>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm mt-4">
+                            <h5 class="font-semibold text-green-700 mb-2">Booking Workflow</h5>
+                            <ol class="list-decimal pl-5 space-y-2 text-gray-600">
+                                <li>Customer submits booking form on website</li>
+                                <li>System automatically sends confirmation email to customer</li>
+                                <li>Admin receives notification of new booking</li>
+                                <li>Admin reviews and confirms booking details</li>
+                                <li>Payment process is initiated</li>
+                                <li>Upon payment, booking status is updated to "Confirmed"</li>
+                                <li>Travel vouchers are generated and sent to customer</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analytics Tab Panel -->
+                <div id="analytics-panel" class="admin-panel p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">Business Analytics</h3>
+                        <div class="flex space-x-2">
+                            <button class="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-200 transition">
+                                <i class="fas fa-file-export mr-2"></i> Export Report
+                            </button>
+                            <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-200 transition">
+                                <i class="fas fa-filter mr-2"></i> Filter
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="font-semibold text-gray-700">Total Bookings</h4>
+                                <span class="text-blue-500"><i class="fas fa-bookmark"></i></span>
+                            </div>
+                            <p class="text-3xl font-bold text-gray-800">142</p>
+                            <p class="text-green-600 text-sm mt-2"><i class="fas fa-arrow-up"></i> 12% from last month</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="font-semibold text-gray-700">Revenue</h4>
+                                <span class="text-green-500"><i class="fas fa-rupee-sign"></i></span>
+                            </div>
+                            <p class="text-3xl font-bold text-gray-800">₹28,45,600</p>
+                            <p class="text-green-600 text-sm mt-2"><i class="fas fa-arrow-up"></i> 8% from last month</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="font-semibold text-gray-700">Customer Satisfaction</h4>
+                                <span class="text-yellow-500"><i class="fas fa-star"></i></span>
+                            </div>
+                            <p class="text-3xl font-bold text-gray-800">4.8/5.0</p>
+                            <p class="text-green-600 text-sm mt-2"><i class="fas fa-arrow-up"></i> 0.2 from last month</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+                        <h4 class="font-semibold text-gray-800 mb-4">Popular Packages</h4>
+                        <div class="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <p class="text-gray-500">Package Popularity Chart (Placeholder)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-lg text-indigo-800 mb-3">Data Management Best Practices</h4>
+                        <p class="text-gray-700 mb-4">Follow these guidelines to effectively manage and secure customer data while maximizing business insights.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h5 class="font-semibold text-indigo-700 mb-2">Data Security</h5>
+                                <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                    <li>Limit admin panel access to authorized personnel only</li>
+                                    <li>Use strong, unique passwords and change them regularly</li>
+                                    <li>Enable two-factor authentication for admin accounts</li>
+                                    <li>Ensure all customer data is encrypted in storage and transit</li>
+                                    <li>Regularly backup customer database</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h5 class="font-semibold text-indigo-700 mb-2">Customer Engagement</h5>
+                                <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                    <li>Segment customers based on preferences and past bookings</li>
+                                    <li>Send personalized offers to returning customers</li>
+                                    <li>Track customer communication history</li>
+                                    <li>Collect and analyze customer feedback</li>
+                                    <li>Use data insights to develop new tour packages</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Featured Destinations</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Sonamarg -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://www.tourmyindia.com/socialimg/sonmarg-tourist-places.jpg" alt="Sonamarg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 text-blue-800">Sonamarg</h3>
+                        <p class="text-gray-600 mb-4">Known as the "Meadow of Gold," Sonamarg offers breathtaking views of glaciers and snow-capped mountains.</p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-mountain mr-2"></i>
+                            <span>9,200 ft above sea level</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gulmarg -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://www.tourmyindia.com/socialimg/gulmarg-tourism-kashmir.jpg" alt="Gulmarg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 text-blue-800">Gulmarg</h3>
+                        <p class="text-gray-600 mb-4">A popular skiing destination with the world's highest gondola and stunning flower meadows in summer.</p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-skiing mr-2"></i>
+                            <span>8,690 ft above sea level</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pahalgam -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://blogs.tripzygo.in/wp-content/uploads/2024/05/places-to-visit-in-pahalgam-kashmir-1024x683.jpg" alt="Pahalgam" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 text-blue-800">Pahalgam</h3>
+                        <p class="text-gray-600 mb-4">The "Valley of Shepherds" with picturesque valleys, pristine rivers, and pine forests.</p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-tree mr-2"></i>
+                            <span>7,200 ft above sea level</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Srinagar -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Dal_Lake_Hazratbal_Srinagar.jpg" alt="Srinagar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2 text-blue-800">Srinagar</h3>
+                        <p class="text-gray-600 mb-4">The summer capital featuring the famous Dal Lake, houseboats, and historic Mughal gardens.</p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fas fa-water mr-2"></i>
+                            <span>5,200 ft above sea level</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">What Our Travelers Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Our trip to Kashmir with Nonstop Tour & Travel was absolutely magical! The houseboats in Dal Lake were a unique experience, and the tour guides were knowledgeable and friendly."</p>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <div class="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold">AS</div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Amit Singh</h4>
+                            <p class="text-sm text-gray-500">Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The 5D/6N package was perfectly organized. We got to experience all the major destinations without feeling rushed. Pahalgam was my favorite with its scenic beauty and peaceful ambiance."</p>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <div class="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center text-green-700 font-bold">PR</div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Priya Reddy</h4>
+                            <p class="text-sm text-gray-500">Bangalore, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The gondola ride in Gulmarg was a highlight of our trip! Nonstop Tour & Travel arranged everything perfectly, from accommodations to transportation. Will definitely book with them again!"</p>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <div class="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center text-purple-700 font-bold">RK</div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Rajesh Kumar</h4>
+                            <p class="text-sm text-gray-500">Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title">Contact Us</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 bg-blue-700 text-white">
+                        <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4 w-5"></i>
+                                <p>Fateh kadal near jk bank, Srinagar, Jammu & Kashmir, India - 190002</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt mr-4 w-5"></i>
+                                <p>+91 6006777843</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-4 w-5"></i>
+                                <p>reservations.nonstoptravels@gmail.com</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-4 w-5"></i>
+                                <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-xl font-semibold mb-4">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/" class="w-10 h-10 rounded-full bg-white text-blue-700 flex items-center justify-center hover:bg-gray-200 transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                
+                                <a href="https://www.instagram.com/nonstop_tour_and_travels_123?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="w-10 h-10 rounded-full bg-white text-blue-700 flex items-center justify-center hover:bg-gray-200 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="http://wa.me/916006777843" class="w-10 h-10 rounded-full bg-white text-blue-700 flex items-center justify-center hover:bg-gray-200 transition">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+    <h3 class="text-2xl font-bold mb-6 text-gray-800">Send Us a Message</h3>
+                            <form
+                      action="https://formspree.io/f/xaneawzk"
+                              method="POST"
+    <!-- Form to handle submission via POST -->
+    <form action="send_message.php" method="POST" class="space-y-4">
+        <!-- Name Field -->
+                     
+        <div>
+            <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        </div>
+
+        <!-- Email Field -->
+        <div>
+            <input type="email" name="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        </div>
+
+        <!-- Phone Field -->
+        <div>
+            <input type="tel" name="phone" placeholder="Your Phone Number" class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Subject Field -->
+        <div>
+            <input type="text" name="subject" placeholder="Subject" class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        </div>
+
+        <!-- Message Field -->
+        <div>
+            <textarea name="message" rows="4" placeholder="Your Message" class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200">
+            Send Message
+        </button>
+    </form>
+  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Nonstop Tour & Travel</h3>
+                    <p class="text-gray-400 mb-4">Providing unforgettable travel experiences in Kashmir since 2010. Your trusted partner for exploring the paradise on earth.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#packages" class="hover:text-white transition">Tour Packages</a></li>
+                        <li><a href="#gallery" class="hover:text-white transition">Gallery</a></li>
+                        <li><a href="#booking" class="hover:text-white transition">Book Now</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Popular Destinations</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Srinagar</a></li>
+                        <li><a href="#" class="hover:text-white transition">Gulmarg</a></li>
+                        <li><a href="#" class="hover:text-white transition">Pahalgam</a></li>
+                        <li><a href="#" class="hover:text-white transition">Sonamarg</a></li>
+                        <li><a href="#" class="hover:text-white transition">Doodhpathri</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest deals and travel updates.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your Email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none">
+                        <button type="button" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Nonstop Tour & Travel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Image Slider Functionality
+        const slider = document.getElementById('slider');
+        const dots = document.querySelectorAll('.slider-dot');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentSlide = 0;
+            } else {
+                currentSlide = index;
+            }
+            
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+        
+        // Next and previous buttons
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Auto slide
+        let slideInterval = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Pause auto slide on hover
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        });
+        
+        // Booking Form Submission
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const phone = document.getElementById('phone').value;
+            const place = document.getElementById('place').value;
+            const package = document.getElementById('package').value;
+            const date = document.getElementById('date').value;
+            const guests = document.getElementById('guests').value;
+            
+            // Display form info
+            document.getElementById('info-name').textContent = name;
+            document.getElementById('info-age').textContent = age;
+            document.getElementById('info-phone').textContent = phone;
+            document.getElementById('info-place').textContent = place;
+            document.getElementById('info-package').textContent = package;
+            document.getElementById('info-date').textContent = new Date(date).toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('info-guests').textContent = guests;
+            
+            // Show booking info and hide placeholder
+            document.getElementById('booking-placeholder').classList.add('hidden');
+            document.getElementById('booking-info').classList.remove('hidden');
+            document.getElementById('booking-info').classList.add('fade-in');
+            
+            // Scroll to booking info
+            document.getElementById('booking-info').scrollIntoView({ behavior: 'smooth' });
+            
+            // Add customer to admin table (for demo purposes)
+            if (document.getElementById('customer-table-body')) {
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${name}</td>
+                    <td>${age}</td>
+                    <td>${phone}</td>
+                    <td>${place}</td>
+                    <td>${package}</td>
+                    <td>
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-800">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-800">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                document.getElementById('customer-table-body').prepend(newRow);
+            }
+        });
+        
+        // Admin Login Button
+        if (document.getElementById('admin-login-btn')) {
+            document.getElementById('admin-login-btn').addEventListener('click', function() {
+                document.getElementById('admin-login-section').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+            });
+        }
+        
+        // Admin Dashboard Tabs
+        const adminTabs = document.querySelectorAll('.admin-tab');
+        const adminPanels = document.querySelectorAll('.admin-panel');
+        
+        adminTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetPanel = tab.getAttribute('data-tab');
+                
+                // Hide all panels
+                adminPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                });
+                
+                // Show target panel
+                document.getElementById(`${targetPanel}-panel`).classList.add('active');
+                
+                // Update active tab
+                adminTabs.forEach(t => {
+                    t.classList.remove('active');
+                });
+                tab.classList.add('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
